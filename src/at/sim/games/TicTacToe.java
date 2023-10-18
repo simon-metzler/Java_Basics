@@ -15,7 +15,7 @@ public class TicTacToe {
 
         while (game_is_running) {
 
-            if (player == 1){
+            if (player == 1) {
                 player = 2;
             } else player = 1;
 
@@ -28,31 +28,22 @@ public class TicTacToe {
             }
             updateBoard(board, position, player);
             printBoard(board);
-            if (checkBoardForWinner(board, player)){
+            if (checkBoardForWinner(board, player)) {
                 System.out.println("Player" + player + " won!");
                 game_is_running = false;
             }
-
-
-
-
-
-
-
-
         }
 
     }
+
     public static void printBoard(int[][] board) {
         for (int[] row : board) {
             for (int state : row) {
-                if(state == 1){
+                if (state == 1) {
                     System.out.print("|o");
-                }
-                else if(state == 2){
+                } else if (state == 2) {
                     System.out.print("|x");
-                }
-                else {
+                } else {
                     System.out.print("| ");
                 }
             }
@@ -68,26 +59,25 @@ public class TicTacToe {
         return output;
     }
 
-    public static int[] getPosition(Scanner scanner){
+    public static int[] getPosition(Scanner scanner) {
         int[] position = getPositionFromInput(scanner.next());
         return position;
     }
 
-    public static int[][] updateBoard(int[][] board, int[] position, int state){
+    public static int[][] updateBoard(int[][] board, int[] position, int state) {
         board[position[0]][position[1]] = state;
         return board;
     }
 
-    public static boolean checkPositionIsFree (int [][] board, int[] position) {
+    public static boolean checkPositionIsFree(int[][] board, int[] position) {
         if (board[position[0]][position[1]] == 0) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    public static boolean checkBoardForWinner (int[][] board, int player) {
+    public static boolean checkBoardForWinner(int[][] board, int player) {
         boolean winner = false;
 
         if (board[0][0] == player && board[0][1] == player && board[0][2] == player) {
