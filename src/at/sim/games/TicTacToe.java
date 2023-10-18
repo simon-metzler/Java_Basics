@@ -8,26 +8,34 @@ public class TicTacToe {
         int[][] board = new int[3][3];
         boolean game_is_running = true;
 
+        int player = 2;
+
+        printBoard(board);
+
+
         while (game_is_running) {
-            System.out.println("Player 1: ");
+
+            if (player == 1){
+                player = 2;
+            } else player = 1;
+
+            System.out.println("Player" + player + ": ");
             int[] position = getPosition(scanner);
             while (!checkPositionIsFree(board, position)) {
                 System.out.println("Position is not free");
                 System.out.println("New position: ");
                 position = getPosition(scanner);
             }
-            updateBoard(board, position, 1);
+            updateBoard(board, position, player);
             printBoard(board);
-
-            System.out.println("Player 2: ");
-            int[] position2 = getPosition(scanner);
-            while (!checkPositionIsFree(board, position2)) {
-                System.out.println("Position is not free");
-                System.out.println("New position: ");
-                position2 = getPosition(scanner);
+            if (checkBoardForWinner(board, player)){
+                System.out.println("Player" + player + " won!");
+                game_is_running = false;
             }
-            updateBoard(board, position2, 2);
-            printBoard(board);
+
+
+
+
 
 
 
@@ -55,7 +63,7 @@ public class TicTacToe {
 
     public static int[] getPositionFromInput(String input) {
         String[] input_list = input.split(",");
-        int[] output = {Integer.parseInt(input_list[0]), Integer.parseInt(input_list[1])};
+        int[] output = {Integer.parseInt(input_list[1]), Integer.parseInt(input_list[0])};
 
         return output;
     }
@@ -77,6 +85,41 @@ public class TicTacToe {
         else {
             return false;
         }
+    }
+
+    public static boolean checkBoardForWinner (int[][] board, int player) {
+        boolean winner = false;
+
+        if (board[0][0] == player && board[0][1] == player && board[0][2] == player) {
+            winner = true;
+        }
+        if (board[1][0] == player && board[1][1] == player && board[1][2] == player) {
+            winner = true;
+        }
+        if (board[2][0] == player && board[2][1] == player && board[2][2] == player) {
+            winner = true;
+        }
+
+
+        if (board[0][0] == player && board[1][0] == player && board[2][0] == player) {
+            winner = true;
+        }
+        if (board[0][1] == player && board[1][1] == player && board[2][1] == player) {
+            winner = true;
+        }
+        if (board[0][2] == player && board[1][2] == player && board[2][2] == player) {
+            winner = true;
+        }
+
+
+        if (board[0][0] == player && board[1][1] == player && board[2][2] == player) {
+            winner = true;
+        }
+        if (board[0][2] == player && board[1][1] == player && board[2][0] == player) {
+            winner = true;
+        }
+
+        return winner;
     }
 
 }
