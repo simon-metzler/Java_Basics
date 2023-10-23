@@ -1,48 +1,63 @@
 package at.sim.games;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class WordGuessing {
     public static void main(String[] args) {
+        Random randomNumberGenerator = new Random();
         boolean isGameRunning = true;
-        String word = "Leander";
-        System.out.println(getSecretLetters(word, 2)[0]);
+        String[] words = {"Damien", "Elina", "Java", "Javascript", "Fenster", "Einstein", "Laptop"};
+        Scanner scanner = new Scanner(System.in);
 
+        while (isGameRunning) {
+            String randomWord = words[randomNumberGenerator.nextInt(words.length)];
+            boolean isGuessing = true;
+            String secretLetters = getSecretLetters(randomWord, 5);
+            String guessedLetters = new String();
 
+            printWord(randomWord, secretLetters, guessedLetters);
+            System.out.println();
 
+            while (isGuessing) {
+                System.out.print("Input: ");
+                String input = scanner.nextLine();
+                guessedLetters += input.toLowerCase();
+                isGuessing = printWord(randomWord, secretLetters, guessedLetters);
+                System.out.println();
 
+            }
+            System.out.println("Finished Game!");
+            System.out.println("Write q to quit.");
+            String input = scanner.nextLine();
+            if (input.contains("q")) {;
+                isGameRunning = false;
+            }
+        }
+    }
 
-
-
+    public static String getSecretLetters (String word, int amount) {
+        Random randomNumberGenerator = new Random();
+        String secret_letters = new String();
+        String[] letter_list = word.split("");
+        for (int i = 0; i < amount; i++) {
+            secret_letters += letter_list[randomNumberGenerator.nextInt(letter_list.length)].toLowerCase();
+        }
+        return secret_letters;
 
     }
 
-    public static String[] getSecretLetters (String word, int amount) {
-        Random randomNumberGenerator = new Random();
-        String[] word_as_array = word.split("");
-        String[] secret_letters = new String[amount];
-
-        int count = 0;
-
-        while (secret_letters.length < amount){
-
-            int random_number = randomNumberGenerator.nextInt(0, word_as_array.length);
-            String random_letter = word_as_array[random_number];
-            boolean use_letter = true;
-            for (String letter : secret_letters) {
-
-                if(random_letter == letter){
-                    use_letter = false;
-                }
+    public static boolean printWord (String word, String secretLetters, String guessedLetters) {
+        String[] word_list = word.split("");
+        boolean guessingCompleted = true;
+        for (String character : word_list) {
+            if (secretLetters.contains(character.toLowerCase()) && !guessedLetters.contains(character.toLowerCase())) {
+                System.out.print("*");
+                guessingCompleted = false;
+            } else {
+                System.out.print(character);
             }
-            if(use_letter){
-                secret_letters[count] = random_letter;
-                count += 1;
-            }
-
         }
-
-        return secret_letters;
-
+        return !guessingCompleted;
     }
 }
