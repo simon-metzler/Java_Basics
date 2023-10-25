@@ -13,22 +13,22 @@ public class WordGuessing {
         while (isGameRunning) {
             String randomWord = words[randomNumberGenerator.nextInt(words.length)];
             boolean isGuessing = true;
-            String secretLetters = getSecretLetters(randomWord, 5);
-            String guessedLetters = new String();
+            String visibleLetters = getVisibleLetters(randomWord, 3);
 
-            printWord(randomWord, secretLetters, guessedLetters);
+            printWord(randomWord, visibleLetters);
             System.out.println();
 
             while (isGuessing) {
                 System.out.print("Input: ");
                 String input = scanner.nextLine();
-                guessedLetters += input.toLowerCase();
-                isGuessing = printWord(randomWord, secretLetters, guessedLetters);
+                visibleLetters += input.toLowerCase();
+                printWord(randomWord, visibleLetters);
                 System.out.println();
+                isGuessing = isGameRunning(randomWord, visibleLetters);
 
             }
             System.out.println("Finished Game!");
-            System.out.println("Write q to quit.");
+            System.out.println("Write q to quit, p to play again.");
             String input = scanner.nextLine();
             if (input.contains("q")) {;
                 isGameRunning = false;
@@ -36,28 +36,38 @@ public class WordGuessing {
         }
     }
 
-    public static String getSecretLetters (String word, int amount) {
+    public static String getVisibleLetters(String word, int amount) {
         Random randomNumberGenerator = new Random();
-        String secret_letters = new String();
+        String visibleLetters = new String();
         String[] letter_list = word.split("");
         for (int i = 0; i < amount; i++) {
-            secret_letters += letter_list[randomNumberGenerator.nextInt(letter_list.length)].toLowerCase();
+            visibleLetters += letter_list[randomNumberGenerator.nextInt(letter_list.length)].toLowerCase();
         }
-        return secret_letters;
+        return visibleLetters;
 
     }
 
-    public static boolean printWord (String word, String secretLetters, String guessedLetters) {
+    public static void printWord (String word, String visibleLetters) {
         String[] word_list = word.split("");
-        boolean guessingCompleted = true;
         for (String character : word_list) {
-            if (secretLetters.contains(character.toLowerCase()) && !guessedLetters.contains(character.toLowerCase())) {
-                System.out.print("*");
-                guessingCompleted = false;
-            } else {
+            if (visibleLetters.contains(character.toLowerCase())) {
                 System.out.print(character);
+            } else {
+                System.out.print("*");
+
             }
         }
-        return !guessingCompleted;
+    }
+
+    public static boolean isGameRunning(String word, String visibleLetters) {
+        boolean gameRunning = false;
+        String[] word_list = word.split("");
+        for (String character : word_list) {
+            if (!visibleLetters.contains(character.toLowerCase())) {
+                gameRunning = true;
+            }
+        }
+
+        return gameRunning;
     }
 }
