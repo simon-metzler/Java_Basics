@@ -2,30 +2,19 @@ package at.sim.units.OO_Car;
 
 public class Main {
     public static void main(String[] args) {
-        Car c1 = new Car();
-        c1.brand = "Audi";
-        c1.fuelConsumption = 7;
-        c1.serialNumber = "A1234";
-        c1.tankVolume = 100;
-        c1.fuelAmount = 20;
 
-        Car c2 = new Car();
-        c2.brand = "BMW";
-        c2.fuelConsumption = 6;
-        c2.serialNumber = "B1234";
-        c1.tankVolume = 50;
-        c2.fuelAmount = 20;
+        Car c1 = new Car(7, "Audi", "A1234");
+        c1.setTankVolume(100);
+        c1.setFuelAmount(10);
 
+        Car c2 = new Car(6, "BMW", "B1234");
+        c1.setTankVolume(50);
+        c2.setTankVolume(20);
 
-        System.out.println(c2.fuelAmount);
-        c2.drive();
-        System.out.println(c2.fuelAmount);
+        Car c3 = new Car(17, "Opel", "1234O");
 
-        c1.turboBoost();
+        System.out.println(c1.getBrand());
 
-        c1.honk(10);
-
-        c1.getRemainingRange();
 
 
     }
