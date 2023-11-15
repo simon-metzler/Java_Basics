@@ -1,6 +1,8 @@
 package at.sim.units.OO_Car;
 
 public class Car {
+
+    private Engine engine;
     private String color;
     private int fuelAmount;
     public int fuelConsumption;
@@ -9,16 +11,18 @@ public class Car {
     private String serialNumber;
     private String brand;
 
-    public Car(String serialNumber, int fuelConsumption, int tankVolume){
+    public Car(String serialNumber, int fuelConsumption, int tankVolume, Engine engine){
         this.serialNumber = serialNumber;
         this.fuelAmount = fuelAmount;
         this.fuelConsumption = fuelConsumption;
         this.tankVolume = tankVolume;
+        this.engine = engine;
     }
 
-    public void drive(){
+    public void drive(int speed){
         this.fuelAmount = this.fuelAmount - fuelConsumption;
-        System.out.println("I am driving");
+        System.out.println("Car is driving");
+        engine.drive(speed);
     }
 
     public void brake() {
@@ -67,6 +71,14 @@ public class Car {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 }
 
