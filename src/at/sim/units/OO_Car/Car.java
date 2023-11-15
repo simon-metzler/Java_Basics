@@ -9,10 +9,11 @@ public class Car {
     private String serialNumber;
     private String brand;
 
-    public Car(int fuelConsumption, String brand, String serialNumber){
-        this.fuelConsumption = fuelConsumption;
-        this.brand = brand;
+    public Car(String serialNumber, int fuelConsumption, int tankVolume){
         this.serialNumber = serialNumber;
+        this.fuelAmount = fuelAmount;
+        this.fuelConsumption = fuelConsumption;
+        this.tankVolume = tankVolume;
     }
 
     public void drive(){
@@ -44,52 +45,28 @@ public class Car {
         System.out.println("Remaining range: " + remainingRange);
     }
 
-    public void setFuelConsumption(int fuelConsumption) {
-        this.fuelConsumption = fuelConsumption;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public void setFuelAmount(int fuelAmount) {
-        this.fuelAmount = fuelAmount;
-    }
-
-    public void setTankVolume(int tankVolume) {
-        this.tankVolume = tankVolume;
+    public String getColor() {
+        return color;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public int getFuelAmount() {
         return fuelAmount;
     }
 
-    public int getFuelConsumption() {
-        return fuelConsumption;
-    }
-
-    public int getTankVolume() {
-        return tankVolume;
+    public void setFuelAmount(int fuelAmount) {
+        this.fuelAmount = fuelAmount;
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }
 
