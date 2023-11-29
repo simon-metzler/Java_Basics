@@ -1,7 +1,7 @@
 package at.sim.units.OO_Car;
 
 public class Engine {
-    private enum TYPE {DIESEL, GAS}
+    public enum TYPE {DIESEL, GAS}
     private int horsePower;
     private TYPE type;
 
