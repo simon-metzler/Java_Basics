@@ -2,6 +2,7 @@ package at.sim.games;
 
 import java.util.Random;
 import java.util.Scanner;
+
 public class Wuerfelspiel {
     public static void main(String[] args) {
 
@@ -41,8 +42,9 @@ public class Wuerfelspiel {
         }
         return sum;
     }
-    public static void print_header(){
+
+    public static void print_header() {
         System.out.println("1. Spielen" +
-                            "\n2. Beenden");
+                "\n2. Beenden");
     }
 }

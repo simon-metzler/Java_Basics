@@ -16,7 +16,7 @@ public class Car {
     private String serialNumber;
     private String brand;
 
-    public Car(String serialNumber, int fuelConsumption, int tankVolume, Engine engine){
+    public Car(String serialNumber, int fuelConsumption, int tankVolume, Engine engine) {
         this.serialNumber = serialNumber;
         this.fuelAmount = fuelAmount;
         this.fuelConsumption = fuelConsumption;
@@ -26,7 +26,7 @@ public class Car {
         this.wheels = new ArrayList<>();
     }
 
-    public void addWheel(Wheel wheel){
+    public void addWheel(Wheel wheel) {
         this.wheels.add(wheel);
     }
 
@@ -34,7 +34,7 @@ public class Car {
         return wheels;
     }
 
-    public void addMirror(RearMirror rearMirror){
+    public void addMirror(RearMirror rearMirror) {
         this.mirrors.add(rearMirror);
     }
 
@@ -42,7 +42,7 @@ public class Car {
         return mirrors;
     }
 
-    public void drive(int speed){
+    public void drive(int speed) {
         this.fuelAmount = this.fuelAmount - fuelConsumption;
         System.out.println("Car is driving");
         engine.drive(speed);
@@ -53,7 +53,7 @@ public class Car {
     }
 
     public void turboBoost() {
-        if ((fuelAmount/tankVolume)>0.1) {
+        if ((fuelAmount / tankVolume) > 0.1) {
             System.out.println("Super boost");
         } else {
             System.out.println("Not enough fuel");
@@ -62,7 +62,7 @@ public class Car {
     }
 
     public void honk(int amountOfRepetitions) {
-        for (int i = 0; i < amountOfRepetitions; i++){
+        for (int i = 0; i < amountOfRepetitions; i++) {
             System.out.println("Tuuuut");
         }
     }

@@ -9,7 +9,7 @@ public class BaseShape {
     private double radius;
 
 
-    public BaseShape(String name, double length, double width, double height, double radius){
+    public BaseShape(String name, double length, double width, double height, double radius) {
         this.name = name;
         this.height = height;
         this.length = length;
@@ -17,38 +17,34 @@ public class BaseShape {
         this.radius = radius;
     }
 
-    public double getArea(){
-        if (name == "Rectangle"){
+    public double getArea() {
+        if (name == "Rectangle") {
             return getRectangleArea();
-        }
-        else if (name == "Triangle"){
+        } else if (name == "Triangle") {
             return getTriangleArea();
-        }
-        else if (name == "Circle"){
+        } else if (name == "Circle") {
             return getCircleArea();
-        }
-        else if (name == "Cube"){
+        } else if (name == "Cube") {
             return getCubeVolumn();
-        }
-        else {
+        } else {
             return 0;
         }
     }
 
 
-    private double getRectangleArea(){
+    private double getRectangleArea() {
         return length * width;
     }
 
-    private double getTriangleArea(){
-        return length * width/2;
+    private double getTriangleArea() {
+        return length * width / 2;
     }
 
-    private double getCircleArea(){
-        return 2*radius*Math.PI;
+    private double getCircleArea() {
+        return 2 * radius * Math.PI;
     }
 
-    private double getCubeVolumn(){
+    private double getCubeVolumn() {
         return width * length * height;
     }
 

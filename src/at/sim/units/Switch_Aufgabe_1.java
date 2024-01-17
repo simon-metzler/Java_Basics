@@ -1,6 +1,7 @@
 package at.sim.units;
 
 import java.util.Random;
+
 public class Switch_Aufgabe_1 {
     public static void main(String[] args) {
         // Erstelle eine Zufallszahl zwischen 5 und 10
@@ -13,7 +14,7 @@ public class Switch_Aufgabe_1 {
         Random random = new Random();
         int randomNumber1 = random.nextInt(5, 11);
 
-        switch (randomNumber1){
+        switch (randomNumber1) {
             case 10:
                 System.out.println("Ten");
                 break;

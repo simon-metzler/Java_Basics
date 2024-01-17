@@ -2,6 +2,7 @@ package at.sim.units.OO_Car;
 
 public class Engine {
     public enum TYPE {DIESEL, GAS}
+
     private int horsePower;
     private TYPE type;
 
@@ -10,7 +11,7 @@ public class Engine {
         this.type = type;
     }
 
-    public void drive(int amount){
+    public void drive(int amount) {
         System.out.println("The motor is running with" + amount);
     }
 

@@ -1,6 +1,7 @@
 package at.sim.units;
 
 import java.util.Random;
+
 public class If_Bedingungen_Aufgabe_1 {
     public static void main(String[] args) {
         // Erstelle eine Zufallszahl zwischen 0 und 100
@@ -10,11 +11,11 @@ public class If_Bedingungen_Aufgabe_1 {
         // Gib die Zufallszahl aus
         System.out.println(randomNumber);
 
-        if(randomNumber<20){
+        if (randomNumber < 20) {
             System.out.println("Mini");
-        } else if ((randomNumber>20) && (randomNumber<50)) {
+        } else if ((randomNumber > 20) && (randomNumber < 50)) {
             System.out.println("Medium");
-        } else if (randomNumber>50) {
+        } else if (randomNumber > 50) {
             System.out.println("Large");
         }
 

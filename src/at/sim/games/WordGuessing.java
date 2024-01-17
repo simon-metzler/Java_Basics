@@ -30,7 +30,8 @@ public class WordGuessing {
             System.out.println("Finished Game!");
             System.out.println("Write q to quit, p to play again.");
             String input = scanner.nextLine();
-            if (input.contains("q")) {;
+            if (input.contains("q")) {
+                ;
                 isGameRunning = false;
             }
         }
@@ -47,7 +48,7 @@ public class WordGuessing {
 
     }
 
-    public static void printWord (String word, String visibleLetters) {
+    public static void printWord(String word, String visibleLetters) {
         String[] word_list = word.split("");
         for (String character : word_list) {
             if (visibleLetters.contains(character.toLowerCase())) {

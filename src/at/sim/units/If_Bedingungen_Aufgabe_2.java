@@ -1,6 +1,7 @@
 package at.sim.units;
 
 import java.util.Random;
+
 public class If_Bedingungen_Aufgabe_2 {
     public static void main(String[] args) {
         // Erstelle zwei Zufallszahl zwischen 0 und 100
@@ -10,13 +11,13 @@ public class If_Bedingungen_Aufgabe_2 {
 
         System.out.println(randomNumber1 + ", " + randomNumber2);
 
-        if((randomNumber1<randomNumber2) && (randomNumber1<50)){
+        if ((randomNumber1 < randomNumber2) && (randomNumber1 < 50)) {
             System.out.println("Zahl 1 ist kleiner als Zahl2 und Mini");
         }
-        if ((randomNumber1<30) || (randomNumber2<30)){
+        if ((randomNumber1 < 30) || (randomNumber2 < 30)) {
             System.out.println("Eine der beiden ist kleiner als 30");
         }
-        if ((randomNumber1<50) && (randomNumber2!=50)){
+        if ((randomNumber1 < 50) && (randomNumber2 != 50)) {
             System.out.println("Erste Zahl klein, zweite kein 50iger");
         }
 

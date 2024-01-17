@@ -1,6 +1,6 @@
 package at.sim.exercises.bank_account_exercise.bank_accounts;
 
-public class CheckingsAccount extends BaseAccount{
+public class CheckingsAccount extends BaseAccount {
     private int limit;
 
     public CheckingsAccount(int limit) {
@@ -9,10 +9,10 @@ public class CheckingsAccount extends BaseAccount{
 
     @Override
     public double withdraw(double amount) {
-        if ((getBalance() - amount)>(limit * -1)){
+        if ((getBalance() - amount) > (limit * -1)) {
             System.out.println("Widthdrawn " + amount + " Euros");
             return super.withdraw(amount);
-        }else {
+        } else {
             System.out.println("Leider keine Deckung");
             return 0;
         }

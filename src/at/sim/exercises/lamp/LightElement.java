@@ -25,14 +25,10 @@ public class LightElement {
     public void turnOn() {
         if (this.state == true) {
             System.out.println("Name: " + this.name + ". Already turned on.");
-        }
-        else {
+        } else {
             this.state = true;
             this.powerUsage += 5;
         }
-
-
-
 
 
     }

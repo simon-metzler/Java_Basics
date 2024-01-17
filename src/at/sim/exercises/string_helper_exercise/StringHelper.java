@@ -3,21 +3,23 @@ package at.sim.exercises.string_helper_exercise;
 public class StringHelper {
     public static Boolean isPalindrome(String input) {
         for (int i = 0; i < input.length() / 2; i++)
-            if (input.charAt(i)!= input.charAt(input.length() - 1 - i)) {
+            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
                 return false;
             }
         return true;
     }
+
     public static int countLetters(String input_string, char input_char) {
         int count = 0;
 
         for (int i = 0; i < input_string.length(); i++) {
             if (input_string.charAt(i) == input_char) {
-                count ++;
+                count++;
             }
         }
         return count;
     }
+
     public static String reverseString(String input) {
         String output = "";
         char character;
@@ -27,6 +29,7 @@ public class StringHelper {
         }
         return output;
     }
+
     public static void printAmountOfLetters(String input) {
         int[] character_list = new int[1000];
         char character;

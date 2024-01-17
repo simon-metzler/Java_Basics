@@ -21,12 +21,11 @@ public class Car {
         this.engine = engine;
         this.distance = distance;
 
-        this.price = (int) (this.base_price-(this.producer.getDiscount()*this.base_price));
+        this.price = (int) (this.base_price - (this.producer.getDiscount() * this.base_price));
 
-        if (this.distance < 50000){
+        if (this.distance < 50000) {
             this.consumption = this.base_consumption;
-        }
-        else {
+        } else {
             this.consumption = this.base_consumption * 1.098;
         }
 
