@@ -13,7 +13,8 @@ public class PhoneFile {
     }
 
 
-    public void getInfo(){
+    public String[] getInfo(){
+        return new String[]{name, String.valueOf(size), extension};
 
     }
 

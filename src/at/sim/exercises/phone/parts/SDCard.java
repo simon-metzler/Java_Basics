@@ -2,6 +2,7 @@ package at.sim.exercises.phone.parts;
 
 import at.sim.exercises.lamp.LightElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SDCard {
@@ -13,10 +14,11 @@ public class SDCard {
 
     public SDCard(int capacity) {
         this.capacity = capacity;
+        this.phoneFiles = new ArrayList<>();
     }
 
     public void saveFile(PhoneFile phoneFile) {
-        phoneFiles.add(phoneFile);
+        this.phoneFiles.add(phoneFile);
 
     }
 
@@ -26,9 +28,10 @@ public class SDCard {
 
     public int getFreeSpace() {
         int phoneFilesSize = 0;
-        for (PhoneFile phoneFile : phoneFiles) {
-            phoneFilesSize += phoneFile.getSize();
-
+        if (phoneFiles != null){
+            for (PhoneFile phoneFile : phoneFiles) {
+                phoneFilesSize += phoneFile.getSize();
+            }
         }
         return capacity-phoneFilesSize;
     }

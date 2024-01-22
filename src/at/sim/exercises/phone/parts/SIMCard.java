@@ -11,7 +11,7 @@ public class SIMCard {
     }
 
     public void doCall(String number) {
-        System.out.println("Calling: " + number);
+        System.out.println("Calling number: " + number);
     }
 
 

@@ -11,7 +11,7 @@ public class Camera {
 
 
     public PhoneFile makePicture(String extension, String name){
-        PhoneFile phoneFile = new PhoneFile(extension, resolution^2, name);
+        PhoneFile phoneFile = new PhoneFile(extension, resolution*resolution, name);
         return phoneFile;
 
     }

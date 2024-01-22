@@ -43,7 +43,13 @@ public class Phone {
     }
 
     public void printAllFiles(){
-        sdCard.getPhoneFiles();
+        for (PhoneFile phoneFile : sdCard.getPhoneFiles()) {
+            for (String info : phoneFile.getInfo()){
+                System.out.print(info + " ");
+
+            }
+            System.out.println();
+        }
 
     }
 
